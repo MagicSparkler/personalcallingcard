@@ -1,0 +1,368 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  color-scheme: light;
+  --background: #f5eee8;
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  color-scheme: dark;
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    color-scheme: dark;
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.205 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.922 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.704 0.191 22.216);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.556 0 0);
+    --chart-1: oklch(0.87 0 0);
+    --chart-2: oklch(0.556 0 0);
+    --chart-3: oklch(0.439 0 0);
+    --chart-4: oklch(0.371 0 0);
+    --chart-5: oklch(0.269 0 0);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.488 0.243 264.376);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.556 0 0);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.calling-card-page {
+  --card-paper: #fbf7f2;
+  --card-rose: #b66e7b;
+  --card-rose-deep: #9d5967;
+  --card-ink: #463735;
+  --card-muted: #8d7772;
+  display: grid;
+  min-height: 100svh;
+  place-items: center;
+  padding: clamp(1.25rem, 5vw, 4rem);
+  background: #f5eee8;
+}
+
+.calling-card {
+  position: relative;
+  display: flex;
+  width: min(100%, 55rem);
+  min-height: min(40rem, calc(100svh - 3rem));
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: clamp(2rem, 7vw, 5.25rem);
+  border: 1px solid rgb(117 76 74 / 11%);
+  border-radius: 0.35rem;
+  background: var(--card-paper);
+  color: var(--card-ink);
+  box-shadow: 0 2.5rem 6rem -3.5rem rgb(79 44 48 / 35%);
+}
+
+.calling-card::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: clamp(8rem, 24vw, 17rem);
+  height: clamp(8rem, 24vw, 17rem);
+  border-bottom-left-radius: 100%;
+  background: #f1e2df;
+  content: '';
+}
+
+.card-topline,
+.card-bottomline,
+.email-link {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+}
+
+.card-topline {
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.monogram {
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  border: 1px solid rgb(182 110 123 / 48%);
+  border-radius: 50%;
+  color: var(--card-rose-deep);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+}
+
+.card-label {
+  color: var(--card-muted);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.card-content {
+  position: relative;
+  z-index: 1;
+  padding-block: 3rem;
+}
+
+.card-intro {
+  margin: 0 0 1.1rem;
+  color: var(--card-rose-deep);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.card-content h1 {
+  margin: 0;
+  color: var(--card-ink);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(3.65rem, 10vw, 7.25rem);
+  font-weight: 400;
+  letter-spacing: -0.075em;
+  line-height: 0.94;
+}
+
+.name-period {
+  color: var(--card-rose);
+}
+
+.card-description {
+  margin: 1.65rem 0 0;
+  color: var(--card-muted);
+  font-size: clamp(1rem, 2vw, 1.18rem);
+  line-height: 1.65;
+}
+
+.email-link {
+  align-self: flex-start;
+  gap: 0.9rem;
+  color: var(--card-ink);
+  text-decoration: none;
+}
+
+.email-icon {
+  display: grid;
+  width: 2.65rem;
+  height: 2.65rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  background: #f1e2df;
+  color: var(--card-rose-deep);
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.email-icon svg {
+  width: 1.05rem;
+  height: 1.05rem;
+}
+
+.email-address {
+  font-size: clamp(0.88rem, 2.2vw, 1.05rem);
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.email-arrow {
+  width: 1rem;
+  height: 1rem;
+  color: var(--card-rose-deep);
+  transition: transform 160ms ease;
+}
+
+.email-link:hover .email-icon {
+  background: var(--card-rose);
+  color: var(--card-paper);
+}
+
+.email-link:hover .email-arrow {
+  transform: translate(2px, -2px);
+}
+
+.email-link:focus-visible {
+  border-radius: 0.25rem;
+  outline: 2px solid var(--card-rose-deep);
+  outline-offset: 0.4rem;
+}
+
+.card-bottomline {
+  gap: 0.8rem;
+  margin-top: 3rem;
+  color: var(--card-rose);
+}
+
+.card-bottomline > span:first-child,
+.card-bottomline > span:last-child {
+  height: 1px;
+  flex: 1;
+  background: #e9d8d3;
+}
+
+.bottom-ornament {
+  font-size: 0.8rem;
+}
+
+@media (max-width: 520px) {
+  .calling-card {
+    min-height: min(36rem, calc(100svh - 2.5rem));
+    padding: 1.75rem;
+  }
+
+  .card-label {
+    max-width: 8rem;
+    text-align: right;
+  }
+
+  .card-content {
+    padding-block: 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
